@@ -9,8 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    .sidebar-link { @apply flex items-center gap-3 px-4 py-2.5 text-sm text-stone-400 hover:text-stone-100 hover:bg-stone-800/50 rounded-lg transition-colors; }
-    .sidebar-link.active { @apply text-white bg-stone-800; }
     .btn { @apply px-4 py-2 text-sm font-medium rounded-lg transition-colors inline-flex items-center gap-2; }
     .btn-primary { @apply bg-signature text-white hover:bg-signature-dark; }
     .btn-ghost { @apply text-stone-400 hover:text-white hover:bg-stone-800; }
@@ -28,10 +26,13 @@
   <?php require_once __DIR__ . '/sidebar.php'; ?>
   <div class="flex-1 flex flex-col min-h-screen">
     <header class="h-16 border-b border-stone-800 flex items-center justify-between px-6 bg-stone-950 sticky top-0 z-10">
-      <h2 class="text-lg font-semibold"><?= $title ?? 'Dashboard' ?></h2>
-      <div class="flex items-center gap-4">
-        <span class="text-sm text-stone-400"><?= $_SESSION['admin_name'] ?? '' ?></span>
-        <a href="<?= SITE_URL ?>/admin/logout.php" class="text-sm text-stone-500 hover:text-red-400 transition-colors">Logout</a>
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-emerald-400/80 animate-pulse"></div>
+        <h2 class="text-base font-semibold text-stone-200"><?= $title ?? 'Dashboard' ?></h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full bg-signature/20 flex items-center justify-center text-signature-light text-xs font-bold"><?= strtoupper(substr($_SESSION['admin_name'] ?? 'A', 0, 1)) ?></div>
+        <span class="text-sm text-stone-400"><?= $_SESSION['admin_name'] ?? 'Admin' ?></span>
       </div>
     </header>
     <main class="flex-1 p-6">
