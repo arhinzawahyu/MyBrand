@@ -15,125 +15,105 @@
 
 ---
 
-## Tentang
+Ini adalah proyek website **LanggarBoy** — brand apparel lokal yang gue buat dari nol. Full native, tanpa framework PHP, tanpa library JS. Server-side pake PHP, database MySQL, styling pake Tailwind CSS, dan interaksi frontend pake Vanilla JS murni.
 
-**LanggarBoy** adalah brand apparel lokal yang lahir dari kegelisahan — dari rasa bosan terhadap apa yang "seharusnya." Minimalis, tajam, untuk anak muda yang berani beda.
+Kenapa gue bikin ini? Karena gue pengen punya platform sendiri buat brand baju skena yang gue bangun. Minimalis, tajam, dan berani beda — sama seperti konsep brand-nya.
 
-Website ini dibangun dengan stack native: **PHP** di sisi server, **MySQL** untuk database, **Tailwind CSS** (via CDN) untuk styling, dan **Vanilla JavaScript** untuk interaktivitas.
+## Yang Bisa Dilakukan
 
-## Fitur
-
-| Fitur | Keterangan |
+| Fitur | Ceritanya |
 |-------|-----------|
-| 🎠 **Hero Carousel** | Auto-slide dengan transisi mulus |
-| 🌙 **Dark Mode** | Toggle dengan persistensi localStorage, transisi smooth |
-| 📱 **Mobile Fullscreen Menu** | Overlay fullscreen dengan animasi fade-up |
-| 🏷️ **Katalog Produk** | Gallery dengan filter kategori + sorting (terbaru/termurah/termahal) |
-| 🎨 **Product Detail** | Pilihan warna, size, quantity, accordion info |
-| 🛒 **Cart + Checkout** | localStorage cart → form checkout → simpan ke database |
-| 🔍 **Scroll Reveal** | Animasi muncul saat scroll via IntersectionObserver |
-| ❓ **FAQ Accordion** | Interaktif, smooth open/close |
-| 📝 **Blog** | Daftar artikel dari database |
-| ⚙️ **Admin Panel** | Lihat pesanan masuk (basic auth) |
+| 🎠 **Hero Carousel** | Auto-slide 3 slide, transisi mulus, dot navigasi |
+| 🌙 **Dark Mode** | Toggle di navbar, tersimpan di localStorage, transisi smooth ke seluruh element |
+| 📱 **Mobile Fullscreen Menu** | Begitu diklik, nutup full screen dengan animasi link muncul satu-satu |
+| 🏷️ **Katalog Produk** | Gallery produk + filter per kategori + sorting harga |
+| 🎨 **Detail Produk** | Pilih warna (color dot), pilih size, atur quantity, accordion info |
+| 🛒 **Cart + Checkout** | Nambah ke keranjang via localStorage, form checkout disimpan ke database MySQL |
+| 🔍 **Scroll Reveal** | Section muncul dengan animasi pas di-scroll pake IntersectionObserver |
+| ❓ **FAQ Accordion** | Interaktif, buka satu nutup yang lain |
+| 📝 **Blog** | Artikel dari database, siap develop lebih lanjut |
+| ⚙️ **Admin Panel** | Simple admin buat lihat pesanan masuk, pake basic auth |
 
 ## Tech Stack
 
 ```
 Frontend   : HTML5, Tailwind CSS (CDN), Vanilla JS
 Backend    : PHP 8+ (native, no framework)
-Database   : MySQL 8 (via XAMPP)
+Database   : MySQL 8
 Server     : Apache (XAMPP)
 ```
 
-## Struktur Project
+## Struktur Folder
 
 ```
 C:\xampp\htdocs\MyBrand\
-├── index.php              # Beranda — hero carousel, featured, kategori, CTA
-├── products.php           # Katalog produk — filter + sort
-├── product.php            # Detail produk — warna, size, qty, cart
+├── index.php              # Halaman utama
+├── products.php           # Katalog produk
+├── product.php            # Detail produk
 ├── about.php              # Tentang brand
-├── faq.php                # FAQ accordion interaktif
-├── blog.php               # Journal / blog
-├── checkout.php           # Keranjang + form checkout
-├── kontak.php             # Handler form kontak
+├── faq.php                # FAQ
+├── blog.php               # Journal
+├── checkout.php           # Checkout
+├── kontak.php             # Contact form handler
 │
-├── includes/
-│   ├── config.php         # Koneksi database + helper rupiah()
-│   ├── functions.php      # Query functions (produk, kategori, order)
-│   ├── header.php         # HTML head + Tailwind CDN + navbar
-│   ├── navbar.php         # Navigasi desktop + mobile overlay
-│   └── footer.php         # Footer + JS loader
+├── includes/              # Komponen yang dipake berulang
+│   ├── config.php         # Config DB + helper
+│   ├── functions.php      # Semua query logic
+│   ├── header.php         # Head + opening HTML
+│   ├── navbar.php         # Navigasi (desktop + mobile)
+│   └── footer.php         # Footer + closing tag
 │
 ├── assets/
-│   ├── css/style.css      # Custom CSS — dark mode, animasi, carousel
-│   └── js/main.js         # JS — dark mode, carousel, menu, FAQ, cart
+│   ├── css/style.css      # Styling kustom
+│   └── js/main.js         # Semua JavaScript
 │
 ├── admin/
-│   └── index.php          # Admin panel (basic auth)
+│   └── index.php          # Dashboard admin
 │
-├── database/
-│   ├── schema.sql         # Struktur tabel (8 tables)
-│   └── seed.sql           # Data dummy (8 produk, 4 kategori, 3 blog)
-│
-└── README.md
+└── database/
+    ├── schema.sql         # Struktur tabel
+    └── seed.sql           # Data contoh
 ```
 
 ## Database
 
-8 tabel MySQL:
+Ada 8 tabel yang saling relasi:
 
 ```
-categories      → Kategori produk (kaos, hoodie, celana, aksesoris)
-products        → Produk (price, description, is_new, is_pre_order)
-product_images  → Gambar per produk (multiple)
-product_colors  → Varian warna per produk
-product_sizes   → Varian ukuran per produk
-orders          → Pesanan (customer data, status, total)
-order_items     → Item dalam pesanan (product, size, color, qty)
+categories      → Kategori produk
+products        → Data produk (harga, deskripsi, label new/pre-order)
+product_images  → Gambar (satu produk bisa banyak gambar)
+product_colors  → Varian warna
+product_sizes   → Varian ukuran
+orders          → Data pesanan dan status
+order_items     → Isi dari setiap pesanan
 blog_posts      → Artikel blog
 ```
 
-## Instalasi Lokal
+## Cara Jalanin
 
-**Prerequisites:**
-- XAMPP (Apache + MySQL + PHP)
-- Git
-
-**Langkah:**
+**Sebelum mulai, pastiin udah install XAMPP.**
 
 ```bash
-# 1. Clone repo ke htdocs
+# 1. Clone
 cd C:\xampp\htdocs
 git clone https://github.com/arhinzawahyu/MyBrand.git
 
-# 2. Import database
+# 2. Setup database
 C:\xampp\mysql\bin\mysql.exe -u root < database\schema.sql
 C:\xampp\mysql\bin\mysql.exe -u root < database\seed.sql
 
-# 3. Start Apache & MySQL via XAMPP Control Panel
+# 3. Buka XAMPP, start Apache + MySQL
 
-# 4. Buka di browser
+# 4. Buka browser
 http://localhost/MyBrand/
 ```
 
-**Login Admin:** `http://localhost/MyBrand/admin/`
+**Admin panel:** `http://localhost/MyBrand/admin/`
 ```
 Username: admin
 Password: langgarboy123
 ```
-
-## Screenshots
-
-> *(Tambahin screenshot di sini kalo udah)*
-
-| Halaman | Deskripsi |
-|---------|-----------|
-| Beranda | Hero carousel, featured products, kategori, CTA section |
-| Produk | Gallery + filter kategori + sort harga |
-| Detail | Pilih warna, size, quantity, tambah ke keranjang |
-| Checkout | Form pesanan, simpan ke database |
-| Admin | Lihat semua pesanan masuk |
 
 ## Author
 
@@ -143,10 +123,12 @@ Password: langgarboy123
 ---
 
 <div align="center">
-  <p>Dibuat dengan 🩸, ☕, dan 3 teguk kopi hitam</p>
+  <p>Dibikin dengan 🩸, ☕, dan tekad buat bikin sesuatu yang gue banggain</p>
   <p>
     <a href="https://github.com/arhinzawahyu/MyBrand/issues">Report Bug</a>
     ·
-    <a href="https://github.com/arhinzawahyu/MyBrand/issues">Request Fitur</a>
+    <a href="https://github.com/arhinzawahyu/MyBrand/issues">Saran Fitur</a>
   </p>
+  <br/>
+  <p><strong>Klaim Ga Emang Ga?</strong></p>
 </div>
