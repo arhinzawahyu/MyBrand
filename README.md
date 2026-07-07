@@ -1,134 +1,206 @@
 <div align="center">
   <br/>
   <h1>LANGGAR<span style="color:#A31F34">BOY</span></h1>
-  <p><strong>Bukan Sekadar Baju</strong></p>
   <br/>
   <p>
-    <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white" alt="PHP"/>
-    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL"/>
-    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript"/>
-    <img src="https://img.shields.io/badge/license-MIT-blue" alt="License"/>
+    <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white"/>
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwind-css&logoColor=white"/>
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"/>
+    <img src="https://img.shields.io/badge/License-MIT-blue"/>
   </p>
   <br/>
 </div>
 
+**LanggarBoy** adalah platform e-commerce brand apparel lokal yang gue bangun dari nol. Pure PHP native (no framework), MySQL database, Tailwind CSS, dan Vanilla JavaScript. Bukan cuma website — ini gerbang buat brand baju skena yang gue pengen bikin: minimalis, tajam, dan berani beda.
+
 ---
 
-Ini adalah proyek website **LanggarBoy** — brand apparel lokal yang gue buat dari nol. Full native, tanpa framework PHP, tanpa library JS. Server-side pake PHP, database MySQL, styling pake Tailwind CSS, dan interaksi frontend pake Vanilla JS murni.
+## Daftar Isi
 
-Kenapa gue bikin ini? Karena gue pengen punya platform sendiri buat brand baju skena yang gue bangun. Minimalis, tajam, dan berani beda — sama seperti konsep brand-nya.
+- [Fitur](#fitur)
+- [Tech Stack](#tech-stack)
+- [Tampilan](#tampilan)
+- [Struktur Project](#struktur-project)
+- [Database](#database)
+- [Instalasi](#instalasi)
+- [Admin Panel](#admin-panel)
+- [Author](#author)
 
-## Yang Bisa Dilakukan
+---
 
-| Fitur | Ceritanya |
-|-------|-----------|
-| 🎠 **Hero Carousel** | Auto-slide 3 slide, transisi mulus, dot navigasi |
-| 🌙 **Dark Mode** | Toggle di navbar, tersimpan di localStorage, transisi smooth ke seluruh element |
-| 📱 **Mobile Fullscreen Menu** | Begitu diklik, nutup full screen dengan animasi link muncul satu-satu |
-| 🏷️ **Katalog Produk** | Gallery produk + filter per kategori + sorting harga |
-| 🎨 **Detail Produk** | Pilih warna (color dot), pilih size, atur quantity, accordion info |
-| 🛒 **Cart + Checkout** | Nambah ke keranjang via localStorage, form checkout disimpan ke database MySQL |
-| 🔍 **Scroll Reveal** | Section muncul dengan animasi pas di-scroll pake IntersectionObserver |
-| ❓ **FAQ Accordion** | Interaktif, buka satu nutup yang lain |
-| 📝 **Blog** | Artikel dari database, siap develop lebih lanjut |
-| ⚙️ **Admin Panel** | Simple admin buat lihat pesanan masuk, pake basic auth |
+## Fitur
+
+### Frontend
+| Fitur | Detail |
+|-------|--------|
+| Hero Carousel | Auto-slide 3 slide, transisi crossfade, navigasi dot |
+| Dark Mode | Toggle dengan persistensi localStorage, transisi smooth di seluruh elemen |
+| Mobile Fullscreen Menu | Overlay full layar dengan staggered link animation |
+| Katalog Produk | Gallery grid + filter kategori (Kaos/Hoodie/Celana/Aksesoris) + 4 opsi sorting |
+| Detail Produk | Pilih varian warna (color dot), pilih ukuran, atur quantity, accordion info |
+| Cart & Checkout | LocalStorage cart → form checkout → data tersimpan ke database MySQL |
+| Scroll Reveal | Animasi muncul via IntersectionObserver, tiap section timing berbeda |
+| FAQ Accordion | Interaktif open/close dengan smooth animation |
+
+### Backend
+| Fitur | Detail |
+|-------|--------|
+| PHP Native | Tanpa framework, struktur MVC sederhana dengan `includes/` |
+| MySQL Database | 8 tabel berelasi: produk, kategori, varian, pesanan, blog |
+| Admin Panel | Dashboard sederhana lihat pesanan masuk, proteksi Basic Auth |
+| Blog Engine | Artikel dari database, siap dikembangkan jadi CMS |
+
+---
 
 ## Tech Stack
 
 ```
-Frontend   : HTML5, Tailwind CSS (CDN), Vanilla JS
-Backend    : PHP 8+ (native, no framework)
-Database   : MySQL 8
-Server     : Apache (XAMPP)
+🖥️  Frontend   HTML5 + Tailwind CSS (CDN) + Vanilla JS
+⚙️  Backend    PHP 8+ (Native, no framework)
+🗄️  Database   MySQL 8
+🌐  Server     Apache (XAMPP)
+🎨  Desain     Minimalis, monokrom + signature oxblood #A31F34
 ```
 
-## Struktur Folder
+---
+
+## Tampilan
+
+| Halaman | Deskripsi |
+|---------|-----------|
+| **Beranda** | Hero carousel, featured products grid, kategori cards, CTA section |
+| **Produk** | Gallery grid dengan filter kategori + sort (terbaru/populer/murah/mahal) |
+| **Detail Produk** | Pilihan warna, size chart, quantity, accordion detail & perawatan |
+| **Checkout** | Review cart dari localStorage, form data diri, submit ke database |
+| **FAQ** | Accordion interaktif 8 pertanyaan umum |
+| **About** | Brand story + 3 pilar (Desain, Kualitas, Komunitas) |
+| **Admin** | Dashboard tabel pesanan + statistik database |
+
+---
+
+## Struktur Project
 
 ```
-C:\xampp\htdocs\MyBrand\
-├── index.php              # Halaman utama
-├── products.php           # Katalog produk
-├── product.php            # Detail produk
-├── about.php              # Tentang brand
-├── faq.php                # FAQ
-├── blog.php               # Journal
-├── checkout.php           # Checkout
-├── kontak.php             # Contact form handler
+MyBrand/
 │
-├── includes/              # Komponen yang dipake berulang
-│   ├── config.php         # Config DB + helper
-│   ├── functions.php      # Semua query logic
-│   ├── header.php         # Head + opening HTML
-│   ├── navbar.php         # Navigasi (desktop + mobile)
-│   └── footer.php         # Footer + closing tag
+├── *.php                    # Halaman utama (index, products, product, about, etc.)
+│
+├── includes/                # Komponen reusable
+│   ├── config.php           # Koneksi database + helper functions
+│   ├── functions.php        # Business logic layer (queries, CRUD)
+│   ├── header.php           # HTML head, Tailwind CDN, opening body
+│   ├── navbar.php           # Navigation bar (static desktop, sticky mobile)
+│   └── footer.php           # Footer + JavaScript loader
 │
 ├── assets/
-│   ├── css/style.css      # Styling kustom
-│   └── js/main.js         # Semua JavaScript
+│   ├── css/style.css        # Custom styles (animations, dark mode, layout)
+│   └── js/main.js           # All client-side logic
 │
-├── admin/
-│   └── index.php          # Dashboard admin
+├── admin/                   # Admin panel
+│   └── index.php            # Dashboard (Basic Auth protected)
 │
 └── database/
-    ├── schema.sql         # Struktur tabel
-    └── seed.sql           # Data contoh
+    ├── schema.sql           # Full database structure (8 tables)
+    └── seed.sql             # Sample data (8 products, 4 categories, 3 blog posts)
 ```
+
+---
 
 ## Database
 
-Ada 8 tabel yang saling relasi:
+Diagram relasi 8 tabel MySQL:
 
 ```
-categories      → Kategori produk
-products        → Data produk (harga, deskripsi, label new/pre-order)
-product_images  → Gambar (satu produk bisa banyak gambar)
-product_colors  → Varian warna
-product_sizes   → Varian ukuran
-orders          → Data pesanan dan status
-order_items     → Isi dari setiap pesanan
-blog_posts      → Artikel blog
+categories (1) ──── (N) products (1) ──── (N) product_images
+                              (1) ──── (N) product_colors
+                              (1) ──── (N) product_sizes
+                              (1) ──── (N) order_items (N) ──── (1) orders
+
+blog_posts (standalone)
+contacts (standalone)
 ```
 
-## Cara Jalanin
+**Detail:**
+- **categories** — Nama kategori + slug + image
+- **products** — Data produk (harga, deskripsi, label new/pre-order, FK ke categories)
+- **product_images** — Multiple gambar per produk (sort_order)
+- **product_colors** — Varian warna (name + hex)
+- **product_sizes** — Varian ukuran (S/M/L/XL/XXL/One Size)
+- **orders** — Data pelanggan + total + status (pending → confirmed → shipped → completed)
+- **order_items** — Item dalam pesanan (FK ke orders & products)
+- **blog_posts** — Artikel blog
 
-**Sebelum mulai, pastiin udah install XAMPP.**
+---
+
+## Instalasi
+
+### Prerequisites
+- [XAMPP](https://www.apachefriends.org/) (Apache + MySQL + PHP 8+)
+- [Git](https://git-scm.com/)
+
+### Langkah Instalasi
 
 ```bash
-# 1. Clone
+# 1. Clone repositori
 cd C:\xampp\htdocs
 git clone https://github.com/arhinzawahyu/MyBrand.git
 
-# 2. Setup database
-C:\xampp\mysql\bin\mysql.exe -u root < database\schema.sql
-C:\xampp\mysql\bin\mysql.exe -u root < database\seed.sql
+# 2. Import database
+C:\xampp\mysql\bin\mysql.exe -u root < MyBrand\database\schema.sql
+C:\xampp\mysql\bin\mysql.exe -u root < MyBrand\database\seed.sql
 
-# 3. Buka XAMPP, start Apache + MySQL
+# 3. Jalankan XAMPP
+#    Start Apache → Start MySQL
 
-# 4. Buka browser
+# 4. Buka di browser
 http://localhost/MyBrand/
 ```
 
-**Admin panel:** `http://localhost/MyBrand/admin/`
+### Atau pake PHP Built-in Server
+
+```bash
+cd C:\xampp\htdocs\MyBrand
+php -S localhost:8000
+```
+
+Buka `http://localhost:8000`
+
+---
+
+## Admin Panel
+
+**URL:** `http://localhost/MyBrand/admin/`
+
+**Login:**
 ```
 Username: admin
 Password: langgarboy123
 ```
 
+> ⚠️ **Catatan:** Basic Auth ini cuma proteksi sederhana. Untuk production, ganti password dan implementasi authentication yang lebih aman.
+
+---
+
 ## Author
 
-**Arhinza Wahyu**  
-[github.com/arhinzawahyu](https://github.com/arhinzawahyu)
+Dibangun dengan 🩸, ☕, dan tekad buat bikin sesuatu yang bisa gue banggain.
+
+**Arhinza Wahyu**
+- GitHub: [@arhinzawahyu](https://github.com/arhinzawahyu)
 
 ---
 
 <div align="center">
-  <p>Dibikin dengan 🩸, ☕, dan tekad buat bikin sesuatu yang gue banggain</p>
+  <br/>
+  <p><em>"Klaim Ga Emang Ga?"</em></p>
+  <br/>
   <p>
-    <a href="https://github.com/arhinzawahyu/MyBrand/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/arhinzawahyu/MyBrand/issues">Saran Fitur</a>
+    <a href="https://github.com/arhinzawahyu/MyBrand/issues">🐛 Report Bug</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/arhinzawahyu/MyBrand/issues">💡 Saran Fitur</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/arhinzawahyu/MyBrand">⭐ Star</a>
   </p>
   <br/>
-  <p><strong>Klaim Ga Emang Ga?</strong></p>
 </div>
