@@ -19,7 +19,7 @@ $categories = getCategories();
          class="text-sm uppercase tracking-[0.15em] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
         All
       </a>
-      <a href="<?= SITE_URL ?>/admin/login.php" class="text-xs uppercase tracking-[0.15em] text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">Admin</a>
+      <a href="<?= SITE_URL ?>/admin/login.php" class="text-xs uppercase tracking-[0.15em] text-signature hover:text-signature-light transition-colors">Login</a>
       <button id="darkToggle" class="w-9 h-9 flex items-center justify-center rounded-full border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-sm" aria-label="Toggle dark mode">
         <span id="darkIcon">☀️</span>
       </button>
@@ -44,7 +44,7 @@ $categories = getCategories();
       <a href="<?= SITE_URL ?>/products.php?cat=<?= $cat['slug'] ?>" class="nav-link text-2xl uppercase tracking-[0.2em] font-medium text-stone-800 dark:text-stone-200 hover:text-signature transition-colors"><?= $cat['name'] ?></a>
     <?php endforeach; ?>
     <a href="<?= SITE_URL ?>/products.php" class="nav-link text-2xl uppercase tracking-[0.2em] font-medium text-stone-800 dark:text-stone-200 hover:text-signature transition-colors">All</a>
-    <a href="<?= SITE_URL ?>/admin/login.php" class="nav-link text-lg uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-stone-400 hover:text-signature transition-colors">Admin</a>
+    <a href="<?= SITE_URL ?>/admin/login.php" class="nav-link text-lg uppercase tracking-[0.2em] font-medium text-signature hover:text-signature-light transition-colors">Login</a>
     <div class="mt-4">
       <button id="darkToggleMobile" class="w-9 h-9 flex items-center justify-center rounded-full border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-sm" aria-label="Toggle dark mode">
         <span id="darkIconMobile">☀️</span>
