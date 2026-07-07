@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
@@ -22,4 +23,13 @@ function getDB() {
 
 function rupiah($amount) {
   return 'Rp' . number_format($amount, 0, ',', '.');
+}
+
+function isAdmin() {
+  return isset($_SESSION['admin_id']);
+}
+
+function redirect($url) {
+  header("Location: $url");
+  exit;
 }
