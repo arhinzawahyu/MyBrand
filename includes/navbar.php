@@ -19,7 +19,7 @@ $categories = getCategories();
          class="text-sm uppercase tracking-[0.15em] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
         All
       </a>
-      <a href="<?= SITE_URL ?>/admin/login.php" class="text-xs uppercase tracking-[0.15em] text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" title="Admin">⚙️</a>
+      <a href="<?= SITE_URL ?>/admin/login.php" class="text-xs uppercase tracking-[0.15em] text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">Admin</a>
       <button id="darkToggle" class="w-9 h-9 flex items-center justify-center rounded-full border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors text-sm" aria-label="Toggle dark mode">
         <span id="darkIcon">☀️</span>
       </button>
